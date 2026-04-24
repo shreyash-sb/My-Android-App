@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_padding">20dp</dimen>
+    <dimen name="card_padding">18dp</dimen>
+    <dimen name="hero_padding">24dp</dimen>
+    <dimen name="panel_padding">20dp</dimen>
+    <dimen name="stack_gap_small">8dp</dimen>
+    <dimen name="stack_gap_medium">12dp</dimen>
+    <dimen name="stack_gap_large">16dp</dimen>
+    <dimen name="stack_gap_xlarge">20dp</dimen>
+    <dimen name="stack_gap_xxlarge">24dp</dimen>
+    <dimen name="grid_gap">16dp</dimen>
+    <dimen name="grid_half_gap">8dp</dimen>
+    <dimen name="summary_card_min_height">108dp</dimen>
+    <dimen name="action_card_min_height">134dp</dimen>
+    <dimen name="receipt_preview_size">120dp</dimen>
+    <dimen name="chart_height">320dp</dimen>
+    <dimen name="list_item_padding">16dp</dimen>
+    <dimen name="list_badge_size">44dp</dimen>
+    <dimen name="corner_small">12dp</dimen>
+    <dimen name="corner_medium">18dp</dimen>
+    <dimen name="corner_large">28dp</dimen>
+    <dimen name="hero_corner">36dp</dimen>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#17313E</color>
+    <color name="color_primary_dark">#0E222C</color>
+    <color name="color_secondary">#FF7A59</color>
+    <color name="color_secondary_soft">#FFE7E0</color>
+    <color name="color_tertiary">#3AA889</color>
+    <color name="color_background">#F7F2EA</color>
+    <color name="color_surface">#FFFFFFFF</color>
+    <color name="color_surface_alt">#F0E8DA</color>
+    <color name="color_stroke">#D9D1C6</color>
+    <color name="color_divider">#D9D1C6</color>
+    <color name="color_text_primary">#1F2529</color>
+    <color name="color_text_secondary">#66747B</color>
+    <color name="color_text_tertiary">#8A949A</color>
+    <color name="color_text_inverse">#FFFDF8</color>
+    <color name="color_success">#2E8B57</color>
+    <color name="color_warning">#CF5B3D</color>
+    <color name="color_error">#CF5B3D</color>
+    <color name="color_info">#3458D0</color>
+    <color name="color_chart_one">#17313E</color>
+    <color name="color_chart_two">#FF7A59</color>
+    <color name="color_chart_three">#3AA889</color>
+    <color name="color_chart_four">#E7B84E</color>
+    <color name="color_chart_five">#A56FC8</color>
+    <color name="color_badge_food">#FF8B6A</color>
+    <color name="color_badge_transport">#4E8EDC</color>
+    <color name="color_badge_shopping">#C56AA8</color>
+    <color name="color_badge_bills">#F4B247</color>
+    <color name="color_badge_entertainment">#7B6BF5</color>
+    <color name="color_badge_health">#3AA889</color>
+    <color name="color_badge_travel">#5FB5C8</color>
+    <color name="color_badge_education">#667085</color>
+    <color name="color_badge_other">#8A7E6B</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

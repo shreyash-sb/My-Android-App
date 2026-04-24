@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_background">#10171B</color>
+    <color name="color_surface">#162127</color>
+    <color name="color_surface_alt">#1D2A31</color>
+    <color name="color_stroke">#30414A</color>
+    <color name="color_text_primary">#F6F1E8</color>
+    <color name="color_text_secondary">#AEB8BE</color>
+    <color name="color_text_inverse">#0F171B</color>
+    <color name="color_secondary_soft">#39261F</color>
+</resources>

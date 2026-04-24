@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="expense_categories">
+        <item>Food</item>
+        <item>Transport</item>
+        <item>Shopping</item>
+        <item>Bills</item>
+        <item>Entertainment</item>
+        <item>Health</item>
+        <item>Travel</item>
+        <item>Education</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="expense_sources">
+        <item>@string/source_monthly_budget</item>
+        <item>@string/source_income_balance</item>
+    </string-array>
+
+    <string-array name="theme_modes">
+        <item>@string/theme_system_label</item>
+        <item>@string/theme_light_label</item>
+        <item>@string/theme_dark_label</item>
+    </string-array>
+
+    <string-array name="language_modes">
+        <item>@string/language_system_label</item>
+        <item>@string/language_english_label</item>
+        <item>@string/language_hindi_label</item>
+    </string-array>
+
+    <string-array name="alert_threshold_labels">
+        <item>50%</item>
+        <item>60%</item>
+        <item>70%</item>
+        <item>80%</item>
+        <item>90%</item>
+        <item>95%</item>
+    </string-array>
+</resources>

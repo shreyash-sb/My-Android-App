@@ -1,0 +1,1559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Expense Tracker Screenshot Studio</title>
+  <style>
+    :root {
+      --primary: #17313e;
+      --primary-dark: #0e222c;
+      --secondary: #ff7a59;
+      --tertiary: #3aa889;
+      --warning: #cf5b3d;
+      --info: #3458d0;
+      --background: #f7f2ea;
+      --surface: #ffffff;
+      --surface-alt: #f0e8da;
+      --divider: #d9d1c6;
+      --text: #1f2529;
+      --muted: #66747b;
+      --muted-2: #8a949a;
+      --white: #fffdf8;
+      --success: #2e8b57;
+      --hero: linear-gradient(145deg, #17313e 0%, #315568 45%, #ff7a59 100%);
+      --shadow: 0 12px 24px rgba(23, 49, 62, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      width: 430px;
+      min-height: 932px;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .screen {
+      width: 430px;
+      height: 932px;
+      background: var(--background);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen.splash {
+      background:
+        radial-gradient(circle at 82% 10%, rgba(255,255,255,0.18) 0, rgba(255,255,255,0) 32%),
+        radial-gradient(circle at 8% 92%, rgba(255,255,255,0.12) 0, rgba(255,255,255,0) 28%),
+        linear-gradient(160deg, #17313e 0%, #294454 48%, #ff7a59 100%);
+    }
+
+    .statusbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .statusbar.inverse {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .status-icons {
+      display: flex;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 12px;
+      align-items: center;
+    }
+
+    .content {
+      padding: 12px 20px 30px;
+      height: calc(100% - 42px);
+      overflow: hidden;
+    }
+
+    .scroll {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .toolbar.center .toolbar-title {
+      flex: 1;
+      text-align: center;
+      margin-right: 42px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 21px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+      border: none;
+    }
+
+    .toolbar-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .hero {
+      background: var(--hero);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero.large {
+      padding: 24px;
+      min-height: 170px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.18);
+      color: var(--white);
+    }
+
+    .logo-pill {
+      width: 74px;
+      height: 74px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.18);
+      color: var(--white);
+      font-size: 34px;
+      font-weight: 800;
+      margin-top: 24px;
+    }
+
+    .splash-logo {
+      width: 108px;
+      height: 108px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.18);
+      color: var(--white);
+      font-size: 48px;
+      font-weight: 800;
+      margin: 24px auto 0;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+    }
+
+    .hero h1,
+    .hero h2,
+    .hero h3,
+    .hero p {
+      margin: 0;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      line-height: 1.08;
+      font-weight: 900;
+      margin-top: 24px;
+    }
+
+    .hero h2 {
+      font-size: 24px;
+      font-weight: 900;
+      margin-top: 18px;
+    }
+
+    .hero .sub {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.86);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .hero .meta {
+      margin-top: 16px;
+      color: rgba(255,255,255,0.88);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .hero-mini {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 22px;
+      padding: 14px 16px;
+    }
+
+    .hero-mini .label {
+      color: rgba(255,255,255,0.82);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-mini .value {
+      margin-top: 6px;
+      color: var(--white);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .progress {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.25);
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    .progress > span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.94);
+    }
+
+    .section-title {
+      margin: 24px 0 12px;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      margin-top: -4px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.alt {
+      background: var(--surface-alt);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .metric-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-bottom: 14px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.25;
+      min-height: 34px;
+      font-weight: 700;
+    }
+
+    .metric-value {
+      margin-top: 8px;
+      color: var(--text);
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .metric-value.success {
+      color: var(--success);
+    }
+
+    .metric-value.info {
+      color: var(--info);
+    }
+
+    .metric-value.warning {
+      color: var(--warning);
+    }
+
+    .field,
+    .select,
+    .textarea {
+      border: 1px solid var(--divider);
+      border-radius: 18px;
+      background: #fff;
+      padding: 12px 14px 12px;
+      position: relative;
+    }
+
+    .field-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .field-value {
+      margin-top: 5px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .field-value.muted {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .textarea .field-value {
+      min-height: 48px;
+      line-height: 1.35;
+    }
+
+    .field-trailing {
+      position: absolute;
+      right: 14px;
+      top: 17px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .button {
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 800;
+      border: none;
+    }
+
+    .button.outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--divider);
+    }
+
+    .button.secondary {
+      background: var(--secondary);
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .muted-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .text-link {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .center-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .center-row strong {
+      color: var(--primary);
+    }
+
+    .list-item {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--divider);
+      border-radius: 20px;
+      padding: 14px;
+    }
+
+    .badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .item-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-meta {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(23, 49, 62, 0.08);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .chip.active {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .chip.success {
+      background: rgba(58, 168, 137, 0.14);
+      color: var(--success);
+    }
+
+    .chip.warn {
+      background: rgba(255, 122, 89, 0.16);
+      color: var(--warning);
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .item-amount {
+      font-size: 19px;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .item-amount.debit {
+      color: var(--warning);
+    }
+
+    .item-amount.credit {
+      color: var(--success);
+    }
+
+    .fab {
+      position: absolute;
+      right: 20px;
+      bottom: 24px;
+      min-width: 130px;
+      height: 52px;
+      border-radius: 18px;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 16px 24px rgba(23, 49, 62, 0.18);
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .stat small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .progress-line {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      overflow: hidden;
+      margin-top: 14px;
+    }
+
+    .progress-line > span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--secondary);
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .big-number {
+      margin-top: 6px;
+      font-size: 31px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .pie {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      margin: 16px auto 0;
+      background: conic-gradient(
+        var(--primary) 0 38%,
+        var(--secondary) 38% 62%,
+        var(--tertiary) 62% 79%,
+        #e7b84e 79% 91%,
+        #a56fc8 91% 100%
+      );
+      position: relative;
+    }
+
+    .pie::after {
+      content: "";
+      position: absolute;
+      inset: 34px;
+      background: var(--surface);
+      border-radius: 50%;
+    }
+
+    .legend {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .legend-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .legend-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .bars {
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      height: 180px;
+      margin-top: 18px;
+    }
+
+    .bar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .bar > span {
+      width: 100%;
+      max-width: 32px;
+      border-radius: 14px 14px 8px 8px;
+      background: linear-gradient(180deg, rgba(255,122,89,0.95), rgba(23,49,62,0.95));
+    }
+
+    .drawer-wrap {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(23, 49, 62, 0.2);
+    }
+
+    .drawer-panel {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 304px;
+      background: var(--surface);
+      border-right: 1px solid var(--divider);
+      padding: 18px;
+      box-shadow: 20px 0 24px rgba(23,49,62,0.10);
+    }
+
+    .drawer-card {
+      background: var(--surface-alt);
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .drawer-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 24px;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .drawer-title {
+      margin-top: 18px;
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .drawer-sub {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .drawer-nav-title {
+      margin-top: 18px;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      height: 42px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .drawer-icon {
+      width: 30px;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--divider);
+      margin: 10px 0;
+    }
+
+    .logout {
+      color: var(--warning);
+    }
+
+    .switch-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding: 10px 0 4px;
+    }
+
+    .switch {
+      width: 52px;
+      height: 32px;
+      border-radius: 16px;
+      background: rgba(58, 168, 137, 0.22);
+      padding: 3px;
+      display: flex;
+      justify-content: end;
+    }
+
+    .switch > span {
+      width: 26px;
+      height: 26px;
+      border-radius: 13px;
+      background: var(--success);
+    }
+
+    .loading-card {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 60px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 18px;
+      color: rgba(255,255,255,0.84);
+      text-align: center;
+    }
+
+    .loading-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.2);
+      overflow: hidden;
+    }
+
+    .loading-bar span {
+      display: block;
+      width: 52%;
+      height: 100%;
+      background: rgba(255,255,255,0.9);
+      border-radius: 999px;
+    }
+
+    .footer-version {
+      position: absolute;
+      bottom: 132px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.46);
+      font-size: 11px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const screen = new URLSearchParams(window.location.search).get("screen") || "dashboard";
+
+    function money(value) {
+      return `Rs ${value}`;
+    }
+
+    function statusbar(inverse = false) {
+      return `
+        <div class="statusbar ${inverse ? "inverse" : ""}">
+          <div>2:20</div>
+          <div class="status-icons"><span>4G</span><span>●●●</span><span>78%</span></div>
+        </div>
+      `;
+    }
+
+    function toolbar(title, left = "←", center = true) {
+      return `
+        <div class="toolbar ${center ? "center" : ""}">
+          <div class="icon-btn">${left}</div>
+          <div class="toolbar-title">${title}</div>
+          <div class="icon-btn"></div>
+        </div>
+      `;
+    }
+
+    function menuToolbar() {
+      return `
+        <div class="toolbar">
+          <div class="icon-btn" style="background: var(--surface-alt)">☰</div>
+          <div style="flex:1; margin-left: 14px;">
+            <div style="font-size: 26px; font-weight: 900; color: var(--text);">Smart Expense Tracker</div>
+            <div style="margin-top: 2px; font-size: 16px; font-weight: 700; color: var(--muted);">Apr 2026 snapshot</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function field(label, value, trailing = "") {
+      return `
+        <div class="field">
+          <div class="field-label">${label}</div>
+          <div class="field-value">${value}</div>
+          ${trailing ? `<div class="field-trailing">${trailing}</div>` : ""}
+        </div>
+      `;
+    }
+
+    function textarea(label, value) {
+      return `
+        <div class="textarea field">
+          <div class="field-label">${label}</div>
+          <div class="field-value">${value}</div>
+        </div>
+      `;
+    }
+
+    function metric(label, value, colorClass = "", dot = "#17313e") {
+      return `
+        <div class="card">
+          <div class="metric-dot" style="background:${dot}"></div>
+          <div class="metric-label">${label}</div>
+          <div class="metric-value ${colorClass}">${value}</div>
+        </div>
+      `;
+    }
+
+    function recentItem(letter, color, title, meta, type, amount, kind) {
+      return `
+        <div class="list-item">
+          <div class="badge" style="background:${color}">${letter}</div>
+          <div>
+            <div class="item-title">${title}</div>
+            <div class="item-meta">${meta}</div>
+          </div>
+          <div style="display:flex; flex-direction:column; align-items:end; gap:8px;">
+            <div class="chip ${kind === "credit" ? "success" : "warn"}">${type}</div>
+            <div class="item-amount ${kind}">${amount}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function simpleCard(title, body) {
+      return `
+        <div class="card">
+          <div style="font-size:17px; font-weight:800; color:var(--text);">${title}</div>
+          <div style="margin-top:10px; font-size:14px; line-height:1.45; color:var(--muted);">${body}</div>
+        </div>
+      `;
+    }
+
+    const screens = {
+      splash: `
+        <div class="screen splash">
+          ${statusbar(true)}
+          <div class="content" style="position:relative; color:var(--white);">
+            <div style="height:100%; display:flex; flex-direction:column; justify-content:center; text-align:center; padding:0 18px;">
+              <div class="hero-tag" style="margin:0 auto;">Private Firebase sync</div>
+              <div class="splash-logo">₹</div>
+              <div style="margin-top:28px; font-size:34px; line-height:1.08; font-weight:900;">Smart Expense Tracker</div>
+              <div style="margin-top:10px; font-size:15px; line-height:1.45; color:rgba(255,255,255,0.86);">Track every rupee with calm, clear daily control.</div>
+              <div style="margin-top:8px; font-size:13px; color:rgba(255,255,255,0.74); font-weight:700;">Budget planning, fast entries, and private sync.</div>
+            </div>
+            <div class="footer-version">Version 1.0</div>
+            <div class="loading-card">
+              <div class="loading-bar"><span></span></div>
+              <div style="margin-top:14px; font-size:13px; font-weight:700;">Loading your workspace...</div>
+            </div>
+          </div>
+        </div>
+      `,
+      login: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              <div class="hero large">
+                <div class="logo-pill">₹</div>
+                <h1>Welcome back</h1>
+                <p class="sub">Sign in to continue with your expenses and budget.</p>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:20px; font-weight:800;">Sign in</div>
+                <div class="stack" style="margin-top:16px;">
+                  ${field("Email or mobile number", "shreyash@gmail.com")}
+                  ${field("Password", "••••••••••", "◔")}
+                </div>
+                <div class="text-link">Reset password</div>
+                <div class="button" style="margin-top:18px;">Login</div>
+                <div class="center-row">Need an account? <strong>Create account</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      register: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              <div class="hero large">
+                <div class="logo-pill">₹</div>
+                <h1>Create your account</h1>
+                <p class="sub">Create your profile and start tracking in minutes.</p>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:20px; font-weight:800;">Create account</div>
+                <div class="stack" style="margin-top:16px;">
+                  ${field("Full name", "Shreyash Sitaram Bobalade")}
+                  ${field("Email address", "shreyash@gmail.com")}
+                  ${field("Mobile number", "9876543210")}
+                  ${field("Password", "••••••••••", "◔")}
+                </div>
+                <div class="muted-note" style="margin-top:12px;">Your account stores only your basic profile and your own expense and income records.</div>
+                <div class="button" style="margin-top:18px;">Create account</div>
+                <div class="center-row">Already registered? <strong>Login</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      dashboard: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${menuToolbar()}
+              <div class="hero" style="margin-top:18px;">
+                <h2 style="margin-top:0;">Hello, Shreyash Sitaram Bobalade</h2>
+                <p class="sub">Monthly budget and income balance in one view.</p>
+                <div class="hero-grid">
+                  <div>
+                    <div class="label" style="font-size:12px; color:rgba(255,255,255,0.82); font-weight:700;">Monthly budget left</div>
+                    <div style="margin-top:6px; font-size:24px; font-weight:900;">${money("8,303.00")}</div>
+                  </div>
+                  <div>
+                    <div class="label" style="font-size:12px; color:rgba(255,255,255,0.82); font-weight:700;">Income balance left</div>
+                    <div style="margin-top:6px; font-size:24px; font-weight:900;">${money("53,303.00")}</div>
+                  </div>
+                </div>
+                <div class="progress"><span style="width:36%"></span></div>
+                <div class="hero-grid" style="margin-top:16px;">
+                  <div class="hero-mini">
+                    <div class="label">Income this month</div>
+                    <div class="value">${money("5,000.00")}</div>
+                  </div>
+                  <div class="hero-mini">
+                    <div class="label">Expenses this month</div>
+                    <div class="value">${money("1,697.00")}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section-title">Overview</div>
+              <div class="grid-2">
+                ${metric("Total expenses", money("1,697.00"), "", "#17313e")}
+                ${metric("Total earnings", money("55,000.00"), "", "#3aa889")}
+                ${metric("Current month spending", money("1,697.00"), "", "#ff7a59")}
+                ${metric("Current month income", money("5,000.00"), "info", "#3458d0")}
+                ${metric("Expense transactions this month", "4", "", "#a56fc8")}
+                ${metric("Income transactions this month", "2", "", "#e7b84e")}
+              </div>
+
+              <div class="section-title">Monthly pulse</div>
+              <div class="card alt">
+                <div class="section-subtitle" style="margin:0 0 14px;">Live net balance and savings pace for the current month.</div>
+                <div class="grid-2">
+                  <div class="card" style="padding:16px;">
+                    <div class="metric-label" style="min-height:auto;">Monthly net</div>
+                    <div class="metric-value success">${money("3,303.00")}</div>
+                  </div>
+                  <div class="card" style="padding:16px;">
+                    <div class="metric-label" style="min-height:auto;">Savings rate</div>
+                    <div class="metric-value info">66%</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section-title">Smart check-in</div>
+              <div class="card">
+                <div style="font-size:18px; font-weight:900; line-height:1.3;">Highest expense this month: ${money("888.00")} in Entertainment</div>
+                <div style="margin-top:14px; font-size:18px; font-weight:900; line-height:1.3;">Highest income this month: ${money("5,000.00")} from Dance</div>
+              </div>
+
+              <div class="section-title">Recent activity</div>
+              <div class="card">
+                <div class="stack">
+                  ${recentItem("D", "#3aa889", "Dance", "14 Apr 2026", "Credit", `+${money("5,000.00")}`, "credit")}
+                  ${recentItem("T", "#5fb5c8", "Travel", "14 Apr 2026 | Monthly budget", "Debit", `-${money("10.00")}`, "debit")}
+                  ${recentItem("E", "#7b6bf5", "Entertainment", "14 Apr 2026 | Monthly budget", "Debit", `-${money("888.00")}`, "debit")}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      drawer: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="drawer-wrap">
+            <div class="content">
+              <div class="scroll">
+                ${menuToolbar()}
+                <div class="hero" style="margin-top:18px; min-height:220px;">
+                  <h2 style="margin-top:0;">Hello, Shreyash Sitaram Bobalade</h2>
+                  <p class="sub">Monthly budget and income balance in one view.</p>
+                </div>
+              </div>
+            </div>
+            <div class="drawer-overlay"></div>
+            <div class="drawer-panel">
+              <div class="drawer-card">
+                <div class="drawer-avatar">S</div>
+                <div class="drawer-title">Shreyash Sitaram Bobalade</div>
+                <div class="drawer-sub">shreyash@gmail.com</div>
+                <div class="drawer-sub" style="margin-top:12px;">Member since Apr 2026</div>
+              </div>
+              <div class="drawer-nav-title">Navigate</div>
+              <div class="drawer-item"><span class="drawer-icon">👤</span>Profile</div>
+              <div class="drawer-item"><span class="drawer-icon">＋</span>Add Expense</div>
+              <div class="drawer-item"><span class="drawer-icon">↗</span>Income</div>
+              <div class="drawer-item"><span class="drawer-icon">☷</span>Expense List</div>
+              <div class="drawer-item"><span class="drawer-icon">☰</span>Income List</div>
+              <div class="drawer-item"><span class="drawer-icon">₹</span>Budget</div>
+              <div class="drawer-item"><span class="drawer-icon">◎</span>Savings Goals</div>
+              <div class="drawer-item"><span class="drawer-icon">▥</span>Analytics</div>
+              <div class="drawer-item"><span class="drawer-icon">📄</span>Get report</div>
+              <div class="drawer-item"><span class="drawer-icon">⚙</span>Settings</div>
+              <div class="drawer-item"><span class="drawer-icon">ⓘ</span>About</div>
+              <div class="divider"></div>
+              <div class="drawer-item logout"><span class="drawer-icon" style="color:var(--warning)">⤴</span>Logout</div>
+            </div>
+          </div>
+        </div>
+      `,
+      profile: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Profile")}
+              <div class="hero" style="margin-top:8px;">
+                <div style="font-size:24px; font-weight:900;">Profile</div>
+                <div class="sub">Keep your account details updated for login and drawer identity.</div>
+                <div class="meta">Member since Apr 2026</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:18px; font-weight:800;">Account details</div>
+                <div class="stack" style="margin-top:18px;">
+                  ${field("Full name", "Shreyash Sitaram Bobalade")}
+                  ${field("Mobile number", "9876543210")}
+                  ${field("Email address", "shreyash@gmail.com")}
+                </div>
+                <div class="muted-note" style="margin-top:10px;">Email is your locked login identity for this build.</div>
+                <div class="button" style="margin-top:20px;">✓ Save profile</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      "add-expense": `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Add Expense")}
+              <div class="hero" style="margin-top:8px;">
+                <div style="font-size:18px; font-weight:800;">Add one clean entry and keep the timeline reliable.</div>
+                <div class="sub">Capture amount, category, source, date, and a note to keep budget tracking accurate.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Expense details</div>
+                <div class="stack" style="margin-top:18px;">
+                  ${field("Amount", money("888.00"))}
+                  ${field("Category", "Entertainment", "▾")}
+                  ${field("Pay from", "Monthly budget", "▾")}
+                  ${field("Date", "14 Apr 2026", "🗓")}
+                  ${textarea("Add a note", "Movie night and snacks")}
+                </div>
+                <div class="button" style="margin-top:24px;">＋ Save expense</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      "edit-expense": `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Edit Expense")}
+              <div class="hero" style="margin-top:8px;">
+                <div style="font-size:18px; font-weight:800;">Update the record without losing context.</div>
+                <div class="sub">Adjust the amount, category, source, date, or note and save the corrected entry.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Expense details</div>
+                <div class="stack" style="margin-top:18px;">
+                  ${field("Amount", money("888.00"))}
+                  ${field("Category", "Entertainment", "▾")}
+                  ${field("Pay from", "Income balance", "▾")}
+                  ${field("Date", "14 Apr 2026", "🗓")}
+                  ${textarea("Add a note", "Updated to income balance source")}
+                </div>
+                <div class="button-row" style="margin-top:24px;">
+                  <div class="button outline">Delete</div>
+                  <div class="button">Update</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      "expense-list": `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content" style="position:relative;">
+            <div class="scroll">
+              ${toolbar("Expense List")}
+              <div class="card" style="margin-top:8px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div style="font-size:17px; font-weight:800;">Filter expenses</div>
+                  <div style="color:var(--primary); font-size:13px; font-weight:800;">Clear filters</div>
+                </div>
+                <div class="stack" style="margin-top:16px;">
+                  ${field("Category", "All categories", "▾")}
+                  ${field("Month", "Apr 2026", "▾")}
+                  ${field("Date", "Exact date", "🗓")}
+                </div>
+                <div class="muted-note" style="margin-top:12px;">Swipe left or right to delete an expense.</div>
+              </div>
+              <div style="margin:16px 4px 10px; color:var(--muted); font-size:13px; font-weight:800;">Showing 4 expenses</div>
+              <div class="stack">
+                ${recentItem("E", "#7b6bf5", "Entertainment", "14 Apr 2026 | Monthly budget", "Debit", `-${money("888.00")}`, "debit")}
+                ${recentItem("B", "#f4b247", "Bills", "13 Apr 2026 | Monthly budget", "Debit", `-${money("299.00")}`, "debit")}
+                ${recentItem("T", "#5fb5c8", "Travel", "14 Apr 2026 | Monthly budget", "Debit", `-${money("10.00")}`, "debit")}
+              </div>
+            </div>
+            <div class="fab">＋ Add Expense</div>
+          </div>
+        </div>
+      `,
+      "add-income": `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Add Income")}
+              <div class="hero" style="margin-top:8px;">
+                <div style="font-size:18px; font-weight:800;">Record earnings separately so budget remaining stays accurate.</div>
+                <div class="sub">Use the form below to save amount, reason, and date for each income entry.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Income details</div>
+                <div class="stack" style="margin-top:18px;">
+                  ${field("Amount", money("5,000.00"))}
+                  ${textarea("Reason", "Dance performance")}
+                  ${field("Date", "14 Apr 2026", "🗓")}
+                </div>
+                <div class="button secondary" style="margin-top:24px;">↗ Add money</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      "edit-income": `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Edit Income")}
+              <div class="hero" style="margin-top:8px;">
+                <div style="font-size:18px; font-weight:800;">Update the income entry without losing context.</div>
+                <div class="sub">Adjust the amount, reason, or date and save the corrected income entry.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Income details</div>
+                <div class="stack" style="margin-top:18px;">
+                  ${field("Amount", money("5,000.00"))}
+                  ${textarea("Reason", "Dance performance")}
+                  ${field("Date", "14 Apr 2026", "🗓")}
+                </div>
+                <div class="button-row" style="margin-top:24px;">
+                  <div class="button outline">Delete</div>
+                  <div class="button secondary">Update</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      "income-list": `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content" style="position:relative;">
+            <div class="scroll">
+              ${toolbar("Income List")}
+              <div class="card" style="margin-top:8px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div style="font-size:17px; font-weight:800;">Filter income</div>
+                  <div style="color:var(--primary); font-size:13px; font-weight:800;">Clear filters</div>
+                </div>
+                <div class="stack" style="margin-top:16px;">
+                  ${field("Reason", "Dance", "⌕")}
+                  ${field("Month", "Apr 2026", "▾")}
+                  ${field("Date", "Exact date", "🗓")}
+                </div>
+                <div class="muted-note" style="margin-top:12px;">Swipe left or right to delete an income entry.</div>
+              </div>
+              <div style="margin:16px 4px 10px; color:var(--muted); font-size:13px; font-weight:800;">Showing 2 income entries</div>
+              <div class="stack">
+                ${recentItem("D", "#3aa889", "Dance", "14 Apr 2026", "Credit", `+${money("5,000.00")}`, "credit")}
+                ${recentItem("F", "#17313e", "Freelance", "07 Apr 2026", "Credit", `+${money("12,500.00")}`, "credit")}
+              </div>
+            </div>
+            <div class="fab">↗ Add money</div>
+          </div>
+        </div>
+      `,
+      budget: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Budget Planner")}
+              <div class="hero" style="margin-top:8px;">
+                <div class="kicker">Apr 2026 monthly budget</div>
+                <div class="big-number">${money("1,697.00")}</div>
+                <div class="sub" style="font-weight:700;">Used from monthly budget</div>
+                <div class="progress"><span style="width:17%"></span></div>
+                <div class="stat-row">
+                  <div class="stat">
+                    <small>Remaining</small>
+                    <strong>${money("8,303.00")}</strong>
+                  </div>
+                  <div class="stat">
+                    <small>Budget</small>
+                    <strong>${money("10,000.00")}</strong>
+                  </div>
+                </div>
+                <div class="meta">${money("8,303.00")} left for this month</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Income balance</div>
+                <div class="section-subtitle" style="margin:8px 0 0;">This is calculated from income entries and expenses paid from income balance.</div>
+                <div class="kicker" style="margin-top:18px;">Available balance</div>
+                <div class="big-number" style="font-size:28px;">${money("53,303.00")}</div>
+                <div class="stat-row">
+                  <div class="stat">
+                    <small>Total income added</small>
+                    <strong>${money("55,000.00")}</strong>
+                  </div>
+                  <div class="stat">
+                    <small>Used from income balance</small>
+                    <strong>${money("1,697.00")}</strong>
+                  </div>
+                </div>
+                <div class="muted-note" style="margin-top:14px;">Apr 2026 added ${money("5,000.00")} and used ${money("0.00")} from income balance.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Plan this month</div>
+                <div class="stat-row" style="margin-top:18px;">
+                  <div class="stat">
+                    <small>Selected month</small>
+                    <strong style="font-size:16px;">Apr 2026</strong>
+                  </div>
+                  <div style="display:flex; align-items:center; justify-content:end;">
+                    <div class="button outline" style="height:40px; padding:0 14px;">Select month</div>
+                  </div>
+                </div>
+                <div style="margin-top:18px;">${field("Monthly budget", money("10,000.00"))}</div>
+                <div class="button" style="margin-top:22px;">✓ Save budget</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      goals: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Savings Goals")}
+              <div class="hero" style="margin-top:8px;">
+                <div class="kicker">Apr 2026</div>
+                <div class="big-number">${money("3,303.00")}</div>
+                <div class="sub" style="font-weight:700;">Saved this month</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div class="stat-row" style="margin-top:0;">
+                  <div class="stat">
+                    <small>Selected month</small>
+                    <strong style="font-size:16px;">Apr 2026</strong>
+                  </div>
+                  <div style="display:flex; align-items:center; justify-content:end;">
+                    <div class="button outline" style="height:40px; padding:0 14px;">Select month</div>
+                  </div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat">
+                    <small>Target</small>
+                    <strong>${money("8,000.00")}</strong>
+                  </div>
+                  <div class="stat">
+                    <small>Remaining to goal</small>
+                    <strong>${money("4,697.00")}</strong>
+                  </div>
+                </div>
+                <div class="stat-row">
+                  <div class="stat">
+                    <small>Monthly income</small>
+                    <strong>${money("5,000.00")}</strong>
+                  </div>
+                  <div class="stat">
+                    <small>Monthly spending</small>
+                    <strong>${money("1,697.00")}</strong>
+                  </div>
+                </div>
+                <div style="margin-top:18px;">
+                  <small class="kicker">Goal note</small>
+                  <div style="margin-top:6px; font-size:14px; font-weight:700;">Save for a mid-year travel plan.</div>
+                </div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:18px; font-weight:800;">Savings Goals</div>
+                <div class="section-subtitle" style="margin:8px 0 0;">Track how much of this month's income is turning into savings.</div>
+                <div class="stack" style="margin-top:18px;">
+                  ${field("Monthly savings target", money("8,000.00"))}
+                  ${textarea("Goal note (optional)", "Save for a mid-year travel plan.")}
+                </div>
+                <div class="button" style="margin-top:20px;">✓ Save goal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      analytics: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Analytics")}
+              <div class="chip-row" style="margin-top:4px;">
+                <div class="chip">7 days</div>
+                <div class="chip active">30 days</div>
+                <div class="chip">3 months</div>
+                <div class="chip">1 year</div>
+              </div>
+              <div class="chip-row" style="margin-top:8px;">
+                <div class="chip active">Expenses</div>
+                <div class="chip">Income</div>
+              </div>
+              <div class="grid-2" style="margin-top:16px;">
+                <div class="card">
+                  <div class="metric-label" style="min-height:auto;">Highest category</div>
+                  <div class="metric-value">${money("888.00")}</div>
+                  <div class="item-meta" style="margin-top:8px;">Entertainment</div>
+                </div>
+                <div class="card">
+                  <div class="metric-label" style="min-height:auto;">Average expense</div>
+                  <div class="metric-value">${money("424.25")}</div>
+                  <div class="item-meta" style="margin-top:8px;">Per transaction</div>
+                </div>
+              </div>
+              <div class="card" style="margin-top:12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <div class="metric-label" style="min-height:auto;">Monthly average</div>
+                    <div class="metric-value">${money("1,697.00")}</div>
+                  </div>
+                  <div class="chip success">Per month</div>
+                </div>
+              </div>
+              <div class="card" style="margin-top:12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:16px; font-weight:800;">
+                  <span>Category-wise spending</span>
+                  <span style="color:var(--primary)">◔</span>
+                </div>
+                <div class="pie"></div>
+                <div class="legend">
+                  <div class="legend-row"><div class="legend-left"><span class="swatch" style="background:#17313e"></span>Entertainment</div><span>${money("888.00")}</span></div>
+                  <div class="legend-row"><div class="legend-left"><span class="swatch" style="background:#ff7a59"></span>Bills</div><span>${money("299.00")}</span></div>
+                  <div class="legend-row"><div class="legend-left"><span class="swatch" style="background:#3aa889"></span>Travel</div><span>${money("210.00")}</span></div>
+                </div>
+              </div>
+              <div class="card" style="margin-top:12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; font-size:16px; font-weight:800;">
+                  <span>Monthly spending</span>
+                  <span style="color:var(--secondary)">▥</span>
+                </div>
+                <div class="bars">
+                  <div class="bar"><span style="height:48%"></span>Jan</div>
+                  <div class="bar"><span style="height:72%"></span>Feb</div>
+                  <div class="bar"><span style="height:58%"></span>Mar</div>
+                  <div class="bar"><span style="height:86%"></span>Apr</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      report: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Smart Report")}
+              <div class="hero" style="margin-top:12px;">
+                <div class="logo-pill" style="width:60px;height:60px;margin-top:0;font-size:26px;">📄</div>
+                <h2 style="margin-top:18px;">Smart Report</h2>
+                <div class="sub">Choose a date range and export expenses, income, and balance in one PDF report.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div class="stack">
+                  ${field("From date", "01 Apr 2026", "🗓")}
+                  ${field("To date", "30 Apr 2026", "🗓")}
+                </div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div style="font-size:17px; font-weight:800;">Report preview</div>
+                <div class="stack" style="margin-top:12px; gap:8px;">
+                  <div class="field-value muted">01 Apr 2026 to 30 Apr 2026</div>
+                  <div class="field-value muted">Expenses in range: 4</div>
+                  <div class="field-value">${money("1,697.00")} total spending</div>
+                  <div class="field-value muted" style="margin-top:6px;">Income entries in range: 2</div>
+                  <div class="field-value">${money("5,000.00")} total income</div>
+                  <div class="field-value" style="color:var(--primary); font-size:16px;">Net balance: ${money("3,303.00")}</div>
+                </div>
+              </div>
+              <div class="button" style="margin-top:18px;">📄 Generate PDF</div>
+            </div>
+          </div>
+        </div>
+      `,
+      settings: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("Settings")}
+              <div class="hero" style="margin-top:8px;">
+                <div style="font-size:24px; font-weight:900;">Settings</div>
+                <div class="sub">Theme, language, and budget alerts apply across the app.</div>
+              </div>
+              <div class="card" style="margin-top:16px;">
+                <div class="stack">
+                  ${field("Theme mode", "System", "▾")}
+                  ${field("Language", "English", "▾")}
+                </div>
+                <div class="switch-row">
+                  <div>
+                    <div style="font-size:15px; font-weight:800;">Budget alerts</div>
+                    <div class="muted-note" style="margin-top:4px;">Alerts are active for this device.</div>
+                  </div>
+                  <div class="switch"><span></span></div>
+                </div>
+                <div style="margin-top:10px;">${field("Alert threshold", "80%", "▾")}</div>
+                <div class="muted-note" style="margin-top:14px;">Notifications are ready for budget alerts on this device.</div>
+                <div class="button outline" style="margin-top:10px;">Allow notifications</div>
+                <div class="button" style="margin-top:20px;">⚙ Save settings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      about: `
+        <div class="screen">
+          ${statusbar()}
+          <div class="content">
+            <div class="scroll">
+              ${toolbar("About")}
+              <div class="hero" style="margin-top:12px;">
+                <div class="logo-pill" style="width:60px;height:60px;margin-top:0;font-size:26px;">ⓘ</div>
+                <h2 style="margin-top:18px;">Smart Expense Tracker</h2>
+                <div class="sub">App version 1.0</div>
+              </div>
+              <div class="stack" style="margin-top:16px;">
+                ${simpleCard("Why this app", "Smart Expense Tracker is built for fast daily entries, budget planning, analytics, and clean report export without unnecessary complexity.")}
+                ${simpleCard("Security and privacy", "Email and password sign-in is handled by Firebase Authentication. Expense, income, budget, and savings goal data are stored in Firestore and protected by per-user security rules.")}
+                ${simpleCard("What is stored", "The app stores your profile details, expenses, income entries, monthly budgets, and savings goals. It does not require Google sign-in, Firebase Storage, or paid Firebase features for the current setup.")}
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    };
+
+    document.getElementById("root").innerHTML = screens[screen] || screens.dashboard;
+  </script>
+</body>
+</html>
