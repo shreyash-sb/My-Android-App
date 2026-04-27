@@ -2,12 +2,9 @@ package com.example.expensetracker.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
-
-import java.util.Locale;
 
 public final class AppPreferences {
 
@@ -15,13 +12,8 @@ public final class AppPreferences {
     public static final String THEME_LIGHT = "light";
     public static final String THEME_DARK = "dark";
 
-    public static final String LANGUAGE_SYSTEM = "system";
-    public static final String LANGUAGE_ENGLISH = "en";
-    public static final String LANGUAGE_HINDI = "hi";
-
     private static final String PREFS_NAME = "trackify_preferences";
     private static final String KEY_THEME = "theme_mode";
-    private static final String KEY_LANGUAGE = "language_mode";
     private static final String KEY_ALERT_ENABLED = "budget_alert_enabled";
     private static final String KEY_ALERT_THRESHOLD = "budget_alert_threshold";
     private static final String KEY_LAST_BUDGET_ALERT_SIGNATURE = "last_budget_alert_signature";
@@ -58,31 +50,6 @@ public final class AppPreferences {
     public static void setThemeMode(@NonNull Context context, @NonNull String mode) {
         prefs(context).edit().putString(KEY_THEME, mode).apply();
         applyTheme(context);
-    }
-
-    @NonNull
-    public static String getLanguage(@NonNull Context context) {
-        return prefs(context).getString(KEY_LANGUAGE, LANGUAGE_SYSTEM);
-    }
-
-    public static void setLanguage(@NonNull Context context, @NonNull String language) {
-        prefs(context).edit().putString(KEY_LANGUAGE, language).apply();
-    }
-
-    @NonNull
-    public static Context wrapContext(@NonNull Context context) {
-        String language = getLanguage(context);
-        if (LANGUAGE_SYSTEM.equals(language)) {
-            return context;
-        }
-
-        Locale locale = new Locale(language);
-        Locale.setDefault(locale);
-
-        Configuration configuration = new Configuration(context.getResources().getConfiguration());
-        configuration.setLocale(locale);
-        configuration.setLayoutDirection(locale);
-        return context.createConfigurationContext(configuration);
     }
 
     public static boolean isBudgetAlertEnabled(@NonNull Context context) {

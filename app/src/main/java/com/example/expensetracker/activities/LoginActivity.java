@@ -69,7 +69,7 @@ public class LoginActivity extends BaseActivity {
 
         setLoading(true);
         if (ValidationUtils.isEmailValid(identifier)) {
-            loginWithEmail(identifier, password);
+            loginWithEmail(ValidationUtils.normalizeEmail(identifier), password);
             return;
         }
 
@@ -82,7 +82,7 @@ public class LoginActivity extends BaseActivity {
                     showMessage(binding.getRoot(), getString(R.string.mobile_login_not_found));
                     return;
                 }
-                loginWithEmail(data.getEmail(), password);
+                loginWithEmail(ValidationUtils.normalizeEmail(data.getEmail()), password);
             }
 
             @Override
@@ -121,7 +121,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void sendPasswordReset() {
-        String email = getText(binding.etEmail.getText());
+        String email = ValidationUtils.normalizeEmail(getText(binding.etEmail.getText()));
         if (!ValidationUtils.isEmailValid(email)) {
             binding.tilEmail.setError(getString(R.string.enter_email_first));
             binding.etEmail.requestFocus();

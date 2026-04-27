@@ -1,9 +1,14 @@
 package com.example.expensetracker.utils;
 
 import android.text.TextUtils;
-import android.util.Patterns;
+
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 public final class ValidationUtils {
+
+    private static final Pattern GMAIL_PATTERN =
+            Pattern.compile("^[A-Z0-9._%+-]+@gmail\\.com$", Pattern.CASE_INSENSITIVE);
 
     private ValidationUtils() {
     }
@@ -13,16 +18,23 @@ public final class ValidationUtils {
     }
 
     public static boolean isEmailValid(String email) {
-        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email.trim()).matches();
+        return !TextUtils.isEmpty(email) && GMAIL_PATTERN.matcher(normalizeEmail(email)).matches();
     }
 
     public static boolean isPhoneValid(String phone) {
         String normalized = normalizePhone(phone);
-        return !TextUtils.isEmpty(normalized) && normalized.length() >= 10 && normalized.length() <= 15;
+        return !TextUtils.isEmpty(normalized) && normalized.length() == 10;
     }
 
     public static boolean isLoginIdentifierValid(String value) {
         return isEmailValid(value) || isPhoneValid(value);
+    }
+
+    public static String normalizeEmail(String email) {
+        if (email == null) {
+            return "";
+        }
+        return email.trim().toLowerCase(Locale.US);
     }
 
     public static String normalizePhone(String phone) {

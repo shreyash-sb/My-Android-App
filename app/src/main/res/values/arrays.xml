@@ -23,12 +23,6 @@
         <item>@string/theme_dark_label</item>
     </string-array>
 
-    <string-array name="language_modes">
-        <item>@string/language_system_label</item>
-        <item>@string/language_english_label</item>
-        <item>@string/language_hindi_label</item>
-    </string-array>
-
     <string-array name="alert_threshold_labels">
         <item>50%</item>
         <item>60%</item>

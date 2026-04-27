@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.expensetracker.R;
-import com.example.expensetracker.utils.AppPreferences;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -16,7 +15,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(AppPreferences.wrapContext(newBase));
+        super.attachBaseContext(newBase);
     }
 
     protected void setupToolbar(@NonNull MaterialToolbar toolbar, boolean showBackButton) {

@@ -13,8 +13,8 @@
     <string name="register_heading">Create your account</string>
     <string name="register_subtitle">Create your profile and start tracking in minutes.</string>
     <string name="create_account_label">Create account</string>
-    <string name="email_hint">Email address</string>
-    <string name="email_or_mobile_hint">Email or mobile number</string>
+    <string name="email_hint">Gmail address</string>
+    <string name="email_or_mobile_hint">Gmail or mobile number</string>
     <string name="password_hint">Password</string>
     <string name="name_hint">Full name</string>
     <string name="mobile_hint">Mobile number</string>
@@ -35,7 +35,7 @@
     <string name="register_note_body">Create your profile, then add expenses or income, review analytics, and update your plan from the side menu.</string>
     <string name="logging_in">Signing in...</string>
     <string name="creating_account">Creating account...</string>
-    <string name="enter_email_first">Enter your email first.</string>
+    <string name="enter_email_first">Enter your Gmail address first.</string>
     <string name="reset_password_sent">Password reset email sent.</string>
     <string name="reset_password_failed">Could not send reset email.</string>
 
@@ -143,10 +143,10 @@
     <string name="name_required">Enter your name.</string>
     <string name="email_required">Enter your email address.</string>
     <string name="login_identifier_required">Enter email or mobile number.</string>
-    <string name="invalid_email">Enter a valid email address.</string>
-    <string name="invalid_mobile">Enter a valid mobile number.</string>
+    <string name="invalid_email">Enter a valid Gmail address.</string>
+    <string name="invalid_mobile">Enter a valid 10-digit mobile number.</string>
     <string name="mobile_in_use">Mobile number is already in use.</string>
-    <string name="invalid_login_identifier">Enter a valid email or mobile number.</string>
+    <string name="invalid_login_identifier">Enter a valid Gmail or 10-digit mobile number.</string>
     <string name="password_required">Enter your password.</string>
     <string name="password_too_short">Password must be at least 6 characters.</string>
     <string name="amount_required">Enter an expense amount.</string>
@@ -173,12 +173,11 @@
     <string name="profile_title">Profile</string>
     <string name="profile_subtitle">Keep your account details updated for login and drawer identity.</string>
     <string name="profile_identity_title">Account details</string>
-    <string name="profile_email_locked">Email is your locked login identity for this build.</string>
+    <string name="profile_email_locked">Gmail is your locked login identity for this build.</string>
     <string name="save_profile">Save profile</string>
     <string name="profile_saved">Profile saved.</string>
-    <string name="settings_subtitle">Theme, language, and budget alerts apply across the app.</string>
+    <string name="settings_subtitle">Theme and budget alerts apply across the app.</string>
     <string name="settings_theme_label">Theme mode</string>
-    <string name="settings_language_label">Language</string>
     <string name="settings_alerts_label">Budget alerts</string>
     <string name="settings_threshold_label">Alert threshold</string>
     <string name="settings_notification_permission">Allow notifications</string>
@@ -191,9 +190,6 @@
     <string name="theme_system_label">System</string>
     <string name="theme_light_label">Light</string>
     <string name="theme_dark_label">Dark</string>
-    <string name="language_system_label">System</string>
-    <string name="language_english_label">English</string>
-    <string name="language_hindi_label">Hindi</string>
     <string name="goals_subtitle">"Track how much of this month's income is turning into savings."</string>
     <string name="goal_target_hint">Monthly savings target</string>
     <string name="goal_note_hint">Goal note (optional)</string>

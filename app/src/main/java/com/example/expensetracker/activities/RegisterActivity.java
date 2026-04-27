@@ -51,7 +51,7 @@ public class RegisterActivity extends BaseActivity {
     private void attemptRegister() {
         clearErrors();
         String name = getText(binding.etName.getText());
-        String email = getText(binding.etEmail.getText());
+        String email = ValidationUtils.normalizeEmail(getText(binding.etEmail.getText()));
         String phone = ValidationUtils.normalizePhone(getText(binding.etPhone.getText()));
         String password = getText(binding.etPassword.getText());
 

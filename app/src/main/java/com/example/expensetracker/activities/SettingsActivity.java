@@ -19,21 +19,8 @@ import com.example.expensetracker.utils.AppPreferences;
 import com.example.expensetracker.utils.DropdownUtils;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class SettingsActivity extends BaseActivity {
-
-    private static final List<String> THEME_VALUES = Arrays.asList(
-            AppPreferences.THEME_SYSTEM,
-            AppPreferences.THEME_LIGHT,
-            AppPreferences.THEME_DARK
-    );
-    private static final List<String> LANGUAGE_VALUES = Arrays.asList(
-            AppPreferences.LANGUAGE_SYSTEM,
-            AppPreferences.LANGUAGE_ENGLISH,
-            AppPreferences.LANGUAGE_HINDI
-    );
-    private static final List<Integer> THRESHOLD_VALUES = Arrays.asList(50, 60, 70, 80, 90, 95);
 
     private ActivitySettingsBinding binding;
     private final ActivityResultLauncher<String> notificationPermissionLauncher =
@@ -62,13 +49,6 @@ public class SettingsActivity extends BaseActivity {
         binding.actvThemeMode.setAdapter(themeAdapter);
         DropdownUtils.setupDropdown(binding.actvThemeMode, binding.tilThemeMode);
 
-        ArrayAdapter<String> languageAdapter = DropdownUtils.createAdapter(
-                this,
-                Arrays.asList(getResources().getStringArray(R.array.language_modes))
-        );
-        binding.actvLanguageMode.setAdapter(languageAdapter);
-        DropdownUtils.setupDropdown(binding.actvLanguageMode, binding.tilLanguageMode);
-
         ArrayAdapter<String> thresholdAdapter = DropdownUtils.createAdapter(
                 this,
                 Arrays.asList(getResources().getStringArray(R.array.alert_threshold_labels))
@@ -79,7 +59,6 @@ public class SettingsActivity extends BaseActivity {
 
     private void bindSettings() {
         binding.actvThemeMode.setText(getThemeLabel(AppPreferences.getThemeMode(this)), false);
-        binding.actvLanguageMode.setText(getLanguageLabel(AppPreferences.getLanguage(this)), false);
         binding.switchBudgetAlerts.setChecked(AppPreferences.isBudgetAlertEnabled(this));
         binding.actvAlertThreshold.setText(getThresholdLabel(AppPreferences.getBudgetAlertThreshold(this)), false);
         toggleAlertControls(binding.switchBudgetAlerts.isChecked());
@@ -119,15 +98,12 @@ public class SettingsActivity extends BaseActivity {
 
     private void saveSettings() {
         String themeValue = getThemeValue(binding.actvThemeMode.getText() == null ? "" : binding.actvThemeMode.getText().toString());
-        String languageValue = getLanguageValue(binding.actvLanguageMode.getText() == null ? "" : binding.actvLanguageMode.getText().toString());
         boolean alertsEnabled = binding.switchBudgetAlerts.isChecked();
         int thresholdValue = getThresholdValue(binding.actvAlertThreshold.getText() == null ? "" : binding.actvAlertThreshold.getText().toString());
 
-        boolean requiresRestart = !AppPreferences.getThemeMode(this).equals(themeValue)
-                || !AppPreferences.getLanguage(this).equals(languageValue);
+        boolean requiresRestart = !AppPreferences.getThemeMode(this).equals(themeValue);
 
         AppPreferences.setThemeMode(this, themeValue);
-        AppPreferences.setLanguage(this, languageValue);
         AppPreferences.setBudgetAlertEnabled(this, alertsEnabled);
         AppPreferences.setBudgetAlertThreshold(this, thresholdValue);
 
@@ -156,26 +132,6 @@ public class SettingsActivity extends BaseActivity {
             return AppPreferences.THEME_DARK;
         }
         return AppPreferences.THEME_SYSTEM;
-    }
-
-    private String getLanguageLabel(String value) {
-        if (AppPreferences.LANGUAGE_ENGLISH.equals(value)) {
-            return getString(R.string.language_english_label);
-        }
-        if (AppPreferences.LANGUAGE_HINDI.equals(value)) {
-            return getString(R.string.language_hindi_label);
-        }
-        return getString(R.string.language_system_label);
-    }
-
-    private String getLanguageValue(String label) {
-        if (getString(R.string.language_english_label).equals(label)) {
-            return AppPreferences.LANGUAGE_ENGLISH;
-        }
-        if (getString(R.string.language_hindi_label).equals(label)) {
-            return AppPreferences.LANGUAGE_HINDI;
-        }
-        return AppPreferences.LANGUAGE_SYSTEM;
     }
 
     private String getThresholdLabel(int threshold) {
