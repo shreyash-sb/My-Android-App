@@ -257,16 +257,10 @@ Core screenshots are available in `docs/screenshots/`.
 - [Settings](docs/screenshots/settings.png)
 - [About](docs/screenshots/about.png)
 
-## Developer
-
-Shreyash Bobalade
 
 ## ⭐ Support
-
 If you find this project useful, consider giving the repository a ⭐ on GitHub.
-
 Your feedback and suggestions are always welcome.
 
-##📄 License
-
+## 📄 License
 This project is intended for educational and portfolio purposes.
