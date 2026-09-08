@@ -261,6 +261,12 @@ Core screenshots are available in `docs/screenshots/`.
 
 Shreyash Bobalade
 
-## Support
+## ⭐ Support
 
-If you like this project, give it a star on GitHub.
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
+
+Your feedback and suggestions are always welcome.
+
+##📄 License
+
+This project is intended for educational and portfolio purposes.
